@@ -54,10 +54,7 @@ class ChapterCellView: CommonView<ChapterCellViewModel>, WKNavigationDelegate {
 }
 
 
-class ChapterCellViewModel: CommonViewModelImpl, CellViewModel {
-
-    var indexPath: IndexPath?
-    var onLayout: ((IndexPath?) -> Void)?
+class ChapterCellViewModel: CommonViewModelImpl {
 
     fileprivate let webViewContent = Observable<String?>(.none)
     fileprivate let baseUrl: URL?

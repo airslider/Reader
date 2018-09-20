@@ -52,18 +52,6 @@ class CommonViewModelImpl: NSObject, CommonViewModel {
         ///if crash here, additional outlets exists in xib or view is not present in it
         return view
     }
-
-    func push(toNavigationController navigationController: UINavigationController) {
-
-        let view = self.makeView(bindImmediately: true)
-        let controller = view.controller()
-        navigationController.pushViewController(controller, animated: true)
-        if var screenViewModel = self as? ScreenViewModel {
-            screenViewModel.onClose = { animated in
-                navigationController.popViewController(animated: animated)
-            }
-        }
-    }
 }
 
 

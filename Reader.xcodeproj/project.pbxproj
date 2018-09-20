@@ -30,8 +30,6 @@
 		45E5332521537A1F006E59A0 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E5331F21537A1E006E59A0 /* Observable.swift */; };
 		45E5332621537A1F006E59A0 /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E5332021537A1E006E59A0 /* AutoLayout.swift */; };
 		45E5332721537A1F006E59A0 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E5332121537A1E006E59A0 /* Bindable.swift */; };
-		45E5332821537A1F006E59A0 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E5332221537A1E006E59A0 /* Table.swift */; };
-		45E5332921537A1F006E59A0 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E5332321537A1F006E59A0 /* Utils.swift */; };
 		45E5332C21537CD1006E59A0 /* ChapterCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45E5332B21537CD1006E59A0 /* ChapterCellView.xib */; };
 		45E5332E21537CDF006E59A0 /* ChapterCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E5332D21537CDF006E59A0 /* ChapterCellView.swift */; };
 		45E53330215382B6006E59A0 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E5332F215382B5006E59A0 /* Window.swift */; };
@@ -65,8 +63,6 @@
 		45E5331F21537A1E006E59A0 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		45E5332021537A1E006E59A0 /* AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
 		45E5332121537A1E006E59A0 /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
-		45E5332221537A1E006E59A0 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
-		45E5332321537A1F006E59A0 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		45E5332B21537CD1006E59A0 /* ChapterCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChapterCellView.xib; sourceTree = "<group>"; };
 		45E5332D21537CDF006E59A0 /* ChapterCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterCellView.swift; sourceTree = "<group>"; };
 		45E5332F215382B5006E59A0 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
@@ -111,18 +107,15 @@
 				45229A63214ED16E00BBC4C4 /* ViewController.swift */,
 				45E5332F215382B5006E59A0 /* Window.swift */,
 				452397C6214EDC96004821C4 /* Extensions.swift */,
-				45229A65214ED16E00BBC4C4 /* Main.storyboard */,
-				45229A68214ED17000BBC4C4 /* Assets.xcassets */,
-				45229A6A214ED17000BBC4C4 /* LaunchScreen.storyboard */,
-				45E5332A21537A3A006E59A0 /* MVVM */,
+				45E533312153DBEF006E59A0 /* Resources */,
 				45E5331D21537A1E006E59A0 /* Observable */,
-				45E5332021537A1E006E59A0 /* AutoLayout.swift */,
-				45E5332321537A1F006E59A0 /* Utils.swift */,
 				452397B1214EDC0D004821C4 /* EPUBCore */,
 				45239799214ED354004821C4 /* Books */,
-				45229A6D214ED17000BBC4C4 /* Info.plist */,
 				45E5332B21537CD1006E59A0 /* ChapterCellView.xib */,
 				45E5332D21537CDF006E59A0 /* ChapterCellView.swift */,
+				45E5332021537A1E006E59A0 /* AutoLayout.swift */,
+				45E5332121537A1E006E59A0 /* Bindable.swift */,
+				45229A6D214ED17000BBC4C4 /* Info.plist */,
 			);
 			path = Reader;
 			sourceTree = "<group>";
@@ -164,13 +157,14 @@
 			path = Observable;
 			sourceTree = "<group>";
 		};
-		45E5332A21537A3A006E59A0 /* MVVM */ = {
+		45E533312153DBEF006E59A0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				45E5332121537A1E006E59A0 /* Bindable.swift */,
-				45E5332221537A1E006E59A0 /* Table.swift */,
+				45229A65214ED16E00BBC4C4 /* Main.storyboard */,
+				45229A68214ED17000BBC4C4 /* Assets.xcassets */,
+				45229A6A214ED17000BBC4C4 /* LaunchScreen.storyboard */,
 			);
-			path = MVVM;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F99ACE1AA27B792BCE90F22F /* Pods */ = {
@@ -308,7 +302,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45E5332521537A1F006E59A0 /* Observable.swift in Sources */,
-				45E5332821537A1F006E59A0 /* Table.swift in Sources */,
 				452397C2214EDC0E004821C4 /* MediaType.swift in Sources */,
 				452397C0214EDC0E004821C4 /* FRSmils.swift in Sources */,
 				452397C3214EDC0E004821C4 /* FRResource.swift in Sources */,
@@ -323,7 +316,6 @@
 				45E5332E21537CDF006E59A0 /* ChapterCellView.swift in Sources */,
 				452397BE214EDC0E004821C4 /* FRSpine.swift in Sources */,
 				452397C4214EDC0E004821C4 /* FRSmilElement.swift in Sources */,
-				45E5332921537A1F006E59A0 /* Utils.swift in Sources */,
 				452397BF214EDC0E004821C4 /* FRBook.swift in Sources */,
 				45E5332621537A1F006E59A0 /* AutoLayout.swift in Sources */,
 				452397C1214EDC0E004821C4 /* FRResources.swift in Sources */,
