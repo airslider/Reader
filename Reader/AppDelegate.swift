@@ -15,10 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.onShake = { [weak self] in
             let controller = UIAlertController(title: .none, message: "Choose book", preferredStyle: .actionSheet)
             let debugAction = UIAlertAction(title: "Sphera", style: .default, handler: { action in
-
+                (self?.window?.rootViewController as? MainViewController)?.bookName.value = "small"
             })
             let prodAction = UIAlertAction(title: "Cooking for Geeks", style: .default, handler: { action in
-
+                (self?.window?.rootViewController as? MainViewController)?.bookName.value = "big"
             })
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: .none)
 

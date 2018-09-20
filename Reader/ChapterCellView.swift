@@ -2,58 +2,38 @@ import UIKit
 import WebKit
 
 
-class ChapterCellView: CommonView<ChapterCellViewModel>, ReusableContentView {
-
-    func prepareForReuse() {
-
-        observer = nil
-        webView.loadHTMLString("", baseURL: .none)
-    }
+class ChapterCellView: CommonView<ChapterCellViewModel>, WKNavigationDelegate {
 
     @IBOutlet weak var webViewHeight: NSLayoutConstraint!
     @IBOutlet weak var webView: WKWebView!
 
-//    override func awakeFromNib() {
-//
-//        webView.scrollView.addObserver(self,
-//                                       forKeyPath: "contentSize",
-//                                       options: [.old, .new],
-//                                       context: .none)
-//    }
-//
-//    deinit {
-//
-//        webView.scrollView.removeObserver(self, forKeyPath: "contentSize")
-//    }
+    override func awakeFromNib() {
 
-//    override func observeValue(forKeyPath keyPath: String?,
-//                               of object: Any?,
-//                               change: [NSKeyValueChangeKey : Any]?,
-//                               context: UnsafeMutableRawPointer?) {
-//
-//        if let scroll = object as? UIScrollView, keyPath == "contentSize" {
-//            print("scroll.contentSize.height = \(scroll.contentSize.height)")
-//            let old = change?[.oldKey] as? CGSize
-//            let new = change?[.newKey] as? CGSize
-//
-//            if old?.height != new?.height {
-//                setNeedsUpdateConstraints()
-//                print("scroll.contentSize.height - changed to new \(new?.height)")
-////                setNeedsLayout()
-////                webViewHeight.constant = webView.scrollView.contentSize.height
-//            }
-//        }
-//    }
+        webView.navigationDelegate = self
+        webView.scrollView.addObserver(self,
+                                       forKeyPath: "contentSize",
+                                       options: [.old, .new],
+                                       context: .none)
+    }
 
-    override func updateConstraints() {
+    deinit {
 
-        if let height = viewModel?.containerBounds.height {
-            webViewHeight.constant = height
+        webView.scrollView.removeObserver(self, forKeyPath: "contentSize")
+    }
+
+    override func observeValue(forKeyPath keyPath: String?,
+                               of object: Any?,
+                               change: [NSKeyValueChangeKey : Any]?,
+                               context: UnsafeMutableRawPointer?) {
+
+        if object is UIScrollView, keyPath == "contentSize" {
+            let old = change?[.oldKey] as? CGSize
+            let new = change?[.newKey] as? CGSize
+
+            if old?.height != new?.height {
+                webViewHeight.constant = webView.scrollView.contentSize.height
+            }
         }
-
-        super.updateConstraints()
-
-        print("scroll.contentSize updateConstraints")
     }
 
     private var observer: Observer<String?>?
@@ -64,6 +44,13 @@ class ChapterCellView: CommonView<ChapterCellViewModel>, ReusableContentView {
             self?.webView.loadHTMLString(contentStr ?? "", baseURL: model.baseUrl)
         }
     }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+
+        UIView.animate(withDuration: 0.3) {
+            webView.alpha = 1
+        }
+    }
 }
 
 
@@ -72,18 +59,15 @@ class ChapterCellViewModel: CommonViewModelImpl, CellViewModel {
     var indexPath: IndexPath?
     var onLayout: ((IndexPath?) -> Void)?
 
-    fileprivate let containerBounds: CGRect
-
     fileprivate let webViewContent = Observable<String?>(.none)
-    fileprivate let baseUrl: URL
+    fileprivate let baseUrl: URL?
 
     private let resource: FRResource
 
-    init(withResource resource: FRResource, bounds: CGRect) {
+    init(withResource resource: FRResource) {
 
         self.resource = resource
         baseUrl = URL(fileURLWithPath: resource.fullHref.deletingLastPathComponent)
-        containerBounds = bounds
 
         super.init()
 

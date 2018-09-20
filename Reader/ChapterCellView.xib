@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="417"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <wkWebView contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="xNZ-Wb-LMF">
+                <wkWebView alpha="0.0" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="xNZ-Wb-LMF">
                     <rect key="frame" x="0.0" y="0.0" width="393" height="417"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -27,12 +27,22 @@
                         <wkPreferences key="preferences"/>
                     </wkWebViewConfiguration>
                 </wkWebView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bd-Yo-Psp">
+                    <rect key="frame" x="0.0" y="413" width="393" height="4"/>
+                    <color key="backgroundColor" red="1" green="0.109591231" blue="0.070303770870000004" alpha="0.16057230029585798" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="4" id="S1t-mB-LC2"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="8Bd-Yo-Psp" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="45w-g4-Qc1"/>
+                <constraint firstItem="8Bd-Yo-Psp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="5aN-NA-S7Z"/>
                 <constraint firstItem="xNZ-Wb-LMF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Bxk-5c-lYE"/>
                 <constraint firstItem="xNZ-Wb-LMF" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="EUN-8u-fsd"/>
                 <constraint firstItem="xNZ-Wb-LMF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="kMQ-Ns-WoH"/>
+                <constraint firstItem="8Bd-Yo-Psp" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="pNU-mg-Wm0"/>
                 <constraint firstItem="xNZ-Wb-LMF" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="qBI-Wx-HLt"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
